@@ -63,7 +63,7 @@ const Catalog = () => {
     };
 
     return (
-        <SharedLayout menu={true}>
+        <SharedLayout menu={true} back={'1'}>
             <View style={styles.container}>
 
                 <Text style={styles.title}>Spa and thermal springs catalog</Text>

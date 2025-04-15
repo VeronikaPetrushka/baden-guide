@@ -22,7 +22,7 @@ const Splash = () => {
     }, []);
 
     return (
-        <SharedLayout>
+        <SharedLayout back={'1'}>
             <View style={styles.container}>
                 <Animated.Image 
                     source={require('../assets/decor/logo.png')} 

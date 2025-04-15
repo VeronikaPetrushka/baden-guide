@@ -35,10 +35,10 @@ const Menu = () => {
                 <Text style={[styles.btnText, currentRoute==='VacationTracker' && {color: '#fff'}]}>My vacation</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.btn} onPress={() => currentScreen('SpaQuiz')}>
-                {currentRoute==='SpaQuiz' && <View style={styles.line} /> }
-                <Image source={require('../assets/menu/quiz.png')} style={[styles.icon, currentRoute==='SpaQuiz' && {tintColor: '#fff'}]} />
-                <Text style={[styles.btnText, currentRoute==='SpaQuiz' && {color: '#fff'}]}>Quiz</Text>
+            <TouchableOpacity style={styles.btn} onPress={() => currentScreen('SpaGame')}>
+                {currentRoute==='SpaGame' && <View style={styles.line} /> }
+                <Image source={require('../assets/menu/quiz.png')} style={[styles.icon, currentRoute==='SpaGame' && {tintColor: '#fff'}]} />
+                <Text style={[styles.btnText, currentRoute==='SpaGame' && {color: '#fff'}]}>Quiz</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.btn} onPress={() => currentScreen('AppSettings')}>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     },
 
     btn: {
-        width: '22%',
+        width: '24%',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 7.5

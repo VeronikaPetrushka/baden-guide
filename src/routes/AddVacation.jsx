@@ -90,7 +90,7 @@ const AddVacation = ({ route }) => {
     };
 
     return (
-        <SharedLayout>
+        <SharedLayout back={'2'}>
             <View style={styles.container}>
 
                 <View style={styles.row}>

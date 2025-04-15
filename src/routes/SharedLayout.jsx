@@ -1,12 +1,14 @@
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, ImageBackground } from 'react-native';
 import Menu from './Menu';
 
 const { height } = Dimensions.get('window');
 
-const SharedLayout = ({ children, menu }) => {
+const SharedLayout = ({ children, menu, back }) => {
+    const image = back === '1' ? require('../assets/backgrounds/1.png') : require('../assets/backgrounds/2.png');
+    
     return (
-        <View style={{ flex: 1 }}>
-            <View style={{ flex: 1, backgroundColor: '#000', paddingTop: height * 0.08, paddingHorizontal: 20 }}>
+        <ImageBackground source={image} style={{ flex: 1 }}>
+            <View style={{ flex: 1, paddingTop: height * 0.08, paddingHorizontal: 20 }}>
                 {children}
             </View>
             {
@@ -16,7 +18,7 @@ const SharedLayout = ({ children, menu }) => {
                     </View>
                 )
             }
-        </View>
+        </ImageBackground>
     )
 };
 

@@ -56,7 +56,7 @@ const VacationTracker = () => {
     const planned = vacations.filter((v) => v.status === 'I plan to visit');
 
     return (
-        <SharedLayout menu={true}>
+        <SharedLayout menu={true} back={'1'}>
             <View style={styles.container}>
 
                 <Text style={styles.title}>Personal vacation tracker</Text>
