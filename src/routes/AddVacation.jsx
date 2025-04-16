@@ -62,8 +62,11 @@ const AddVacation = ({ route }) => {
     
     const handleAddVacation = async () => {
         try {
+            const storedVacations = await AsyncStorage.getItem('vacations');
+            const vacations = storedVacations ? JSON.parse(storedVacations) : [];
+
             const newVacation = {
-                id: Date.now(),
+                id: item?.id || Date.now(),
                 status: selectedCategory,
                 image: image,
                 name: name,
@@ -76,19 +79,23 @@ const AddVacation = ({ route }) => {
                 })
             };
 
-            const storedVacations = await AsyncStorage.getItem('vacations');
-            const vacations = storedVacations ? JSON.parse(storedVacations) : [];
+            let updatedVacations;
 
-            const updatedVacations = [...vacations, newVacation];
+            if (item?.id) {
+                updatedVacations = vacations.map((v) =>
+                    v.id === item.id ? newVacation : v
+                );
+            } else {
+                updatedVacations = [...vacations, newVacation];
+            }
 
             await AsyncStorage.setItem('vacations', JSON.stringify(updatedVacations));
-
             navigation.navigate('VacationTracker');
         } catch (error) {
             alert('Error saving your vacation');
         }
     };
-
+    
     return (
         <SharedLayout back={'2'}>
             <View style={styles.container}>
